@@ -38,6 +38,32 @@ export function displayFetchedImages(data) {
   displayImages(data);
 }
 
+export async function updateData(data, resourceId) {
+  const apiUrl = `https://api.thedogapi.com/v1/images/search?limit=${imageLimit || 15}`;
+  const api_key = "live_M5iSn1Ms9iVph8qjvE9WPWl9A1N6FX5NzmmFXoE8qFpSycE7BRo2XSwtUHV10VjT";
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': api_key,
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const responseData = await response.json();
+    return responseData;
+  } catch (error) {
+    console.error('Error during PUT request:', error);
+    return null;
+  }
+}
+
 // export async function fetchAndDisplayImages(imageLimit, imageType) {
 //   const base_url = `https://api.thedogapi.com/v1/images/search?limit=${imageLimit || 15}`;
 //   const api_key = "live_M5iSn1Ms9iVph8qjvE9WPWl9A1N6FX5NzmmFXoE8qFpSycE7BRo2XSwtUHV10VjT";
