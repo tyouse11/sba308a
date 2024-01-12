@@ -1,14 +1,21 @@
-import { fetchAndDisplayImages } from './module.js';
+import { fetchImages, displayFetchedImages } from './module.js'
 
-const loadImagesButton = document.getElementById("loadImagesButton");
-const imageLimitInput = document.getElementById("imageLimitInput");
-const imageTypeDropdown = document.getElementById("imageTypeDropdown");
-
-loadImagesButton.addEventListener("click", function() {
-  const limit = imageLimitInput.value || 15;
-  const imageType = imageTypeDropdown.value; // Get the selected image type
-  fetchAndDisplayImages(limit, imageType);
+// Ensures the initial load waits for the HTML document to be fully loaded before attempting to fetch and display the images
+document.addEventListener("DOMContentLoaded", async function() {
+    // Initial load of images
+    const data = await fetchImages(15, 'all');
+    displayFetchedImages(data);
 });
 
-// Initial load of images
-fetchAndDisplayImages();
+// Event listener to trigger image loading
+const loadImagesButton = document.getElementById("loadImagesButton");
+const imageLimitInput = document.getElementById("imageLimitInput")
+const imageTypeDropdown = document.getElementById("imageTypeDropdown");
+
+
+loadImagesButton.addEventListener("click", async function() {
+    const limit = imageLimitInput.value || 15
+    const imageType = imageTypeDropdown.value;
+    const data = await fetchImages(limit, imageType)
+    displayFetchedImages(data);
+});
