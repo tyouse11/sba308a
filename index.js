@@ -1,17 +1,14 @@
-// import 
-import { fetchAndDisplayImages } from './reload.js'
+import { fetchAndDisplayImages } from './module.js';
 
-
-// Event listener to trigger image loading
 const loadImagesButton = document.getElementById("loadImagesButton");
-const imageLimitInput = document.getElementById("imageLimitInput")
+const imageLimitInput = document.getElementById("imageLimitInput");
+const imageTypeDropdown = document.getElementById("imageTypeDropdown");
 
 loadImagesButton.addEventListener("click", function() {
-    const limit = imageLimitInput.value || 15
-    fetchAndDisplayImages(limit)
+  const limit = imageLimitInput.value || 15;
+  const imageType = imageTypeDropdown.value; // Get the selected image type
+  fetchAndDisplayImages(limit, imageType);
 });
-
-
 
 // Initial load of images
 fetchAndDisplayImages();
