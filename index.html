@@ -11,11 +11,11 @@
     <script type="module" src="index.js"></script>
     <script type="module" src="random.js"></script>
     <title>
-      Dog API grid and Image Types
+      Dog API Grid and Image Types
     </title>
   </head>
   <body>
-    <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-0">
+    <nav id="navbar" class="navbar px-3 mb-0">
       <a class="navbar-brand" href="#">Dog Images</a>
       <ul class="nav nav-pills">
         <li class="nav-item">
@@ -36,17 +36,19 @@
       </ul>
     </nav>
     <div class="maincontent">
-      <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-        <img id="dog" src="" height="250" style="cursor: pointer; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <div style="display: flex; justify-content: center; align-items: center; background-color: cadetblue;">
+        <img id="dog" height="250" style="cursor: pointer; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
       </div>
-      <select id="imageTypeDropdown">
-        <option value="">All</option>
-        <option value="gifs">GIFs</option>
-        <option value="pictures">Pictures</option>
-        <!-- Add options dynamically based on available breeds -->
-    </select>
-      <input type="number" id="imageLimitInput", placeholder="Enter Image Limit"/>
-        <button id="loadImagesButton">Load New Images</button>
+      <div id="usermanip">
+        <select id="imageTypeDropdown">
+          <option value="">All</option>
+          <option value="gifs">GIFs</option>
+          <option value="pictures">Pictures</option>
+      </select>
+        <input type="number" id="imageLimitInput", placeholder="Enter Image Limit"/>
+          <button id="loadImagesButton">Load New Images</button>
+      </div>
+      
       <div id="grid" class="imgrid"></div>
     </div>
   </body>
