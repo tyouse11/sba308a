@@ -1,5 +1,8 @@
 SBA 308A
 
+This website follows the following requirement.
+It uses the dog API. At the top of the page is a random picture of a dog, when you click on the picture, it changes to another picture. Below that is a dropdown menu where the user can  choose what type of image they would like to view on the page (GIF, picture, or a mixture of both) and an input box that allows the user to choose how many images they would like dispalyed on the page. The default is "all" and 15 images. 
+
 Objectives:
 
 - Use asynchronous JavaScript tools to build a responsive web application.
